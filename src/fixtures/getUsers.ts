@@ -5,12 +5,13 @@ export interface User {
 	name: string;
 	total: string;
 	status: string;
-	country: string;
+	time: string;
 	email: string;
 }
 
 export const getUsers = (count: number): Array<User> => {
 	const users: Array<User> = [];
+	const timeOptions: Array<string> = ["h", "min", "d"];
 
 	for (let i = 0; i < count; i++) {
 		const firstName = faker.name.firstName();
@@ -20,7 +21,9 @@ export const getUsers = (count: number): Array<User> => {
 			name: firstName + " " + lastName,
 			total: faker.finance.amount(5, 2500, 2, "$"),
 			status: faker.helpers.arrayElement(["On Hold", "Processing", "Completed"]),
-			country: faker.address.country(),
+			time: `${~~(Math.random() * 10) + 1}${
+				timeOptions[~~(Math.random() * timeOptions.length)]
+			} ago`,
 			email: faker.internet.email(firstName, lastName)
 		});
 	}

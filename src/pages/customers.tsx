@@ -1,4 +1,3 @@
-import React from "react";
 import { GetStaticProps } from "next";
 import { BsPersonFill } from "react-icons/bs";
 import { getUsers, User } from "@/fixtures/getUsers";
@@ -7,21 +6,22 @@ interface Props {
 	users: User[];
 }
 
-const customers = ({ users }: Props) => {
+const Customers = ({ users }: Props) => {
 	return (
 		<main className="bg-neutral-100 min-h-screen">
 			<section className="flex justify-between sm:p-4">
 				<section className="sm:p-4">
 					<div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-						<div className="my-3 p-2 grid lg:grid-cols-table sm:grid-cols-3 grid-cols-sm-table items-center justify-between cursor-pointer gap-4 text-purple-800 font-bold">
+						<div className="my-3 px-2 grid lg:grid-cols-table sm:grid-cols-3 grid-cols-sm-table items-center justify-between cursor-pointer gap-4 text-purple-800 font-bold">
 							<span>Name</span>
 							<span className="sm:text-left text-right max-w-fit">
 								Total
 							</span>
 							<span className="hidden sm:grid">Status</span>
 							<span className="hidden lg:grid">E-mail</span>
-							<span className="hidden lg:grid">Country</span>
+							<span className="hidden lg:grid">Time</span>
 						</div>
+
 						<ul>
 							{users.map((user) => (
 								<li
@@ -36,10 +36,10 @@ const customers = ({ users }: Props) => {
 									</div>
 									<p>{user.total}</p>
 									<p className="hidden sm:grid">{user.status}</p>
-									<p className="hidden md:grid text-gray-600 sm:text-left text-right">
+									<p className="hidden lg:grid text-gray-600 sm:text-left text-right">
 										{user.email}
 									</p>
-									<p className="hidden lg:grid">{user.country}</p>
+									<p className="hidden lg:grid">{user.time}</p>
 								</li>
 							))}
 						</ul>
@@ -57,4 +57,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 	};
 };
 
-export default customers;
+export default Customers;
