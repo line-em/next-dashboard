@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Rubik } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -18,7 +17,7 @@ export default function Home() {
 					}
 				`}</style>
 			</Head>
-			<main className={styles.main}>
+			<main>
 				<h1 className="text-3xl font-bold underline">Hello world!</h1>
 			</main>
 		</>
