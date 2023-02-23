@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { Rubik } from "@next/font/google";
 import TopCards from "@/components/TopCards";
+import BarChart from "@/components/BarChart";
+import RecentOrders from "@/components/RecentOrders";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -20,7 +22,10 @@ export default function Home() {
 			</Head>
 			<section className="bg-neutral-100 min-h-screen">
 				<TopCards />
-				<div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4"></div>
+				<div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
+					<BarChart />
+					<RecentOrders />
+				</div>
 			</section>
 		</>
 	);
