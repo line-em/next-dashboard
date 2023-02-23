@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Rubik } from "@next/font/google";
-import Header from "@/components/Header";
 import TopCards from "@/components/TopCards";
 
 const rubik = Rubik({ subsets: ["latin"] });
@@ -19,11 +18,10 @@ export default function Home() {
 					}
 				`}</style>
 			</Head>
-			<main className="bg-neutral-100 min-h-screen">
-				<Header />
+			<section className="bg-neutral-100 min-h-screen">
 				<TopCards />
 				<div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4"></div>
-			</main>
+			</section>
 		</>
 	);
 }

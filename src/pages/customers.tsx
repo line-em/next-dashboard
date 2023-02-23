@@ -9,11 +9,11 @@ interface Props {
 
 const customers = ({ users }: Props) => {
 	return (
-		<main className="bg-gray-100 min-h-screen">
+		<main className="bg-neutral-100 min-h-screen">
 			<section className="flex justify-between sm:p-4">
 				<section className="sm:p-4">
 					<div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-						<div className="my-3 p-2 grid lg:grid-cols-table sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer gap-4">
+						<div className="my-3 p-2 grid lg:grid-cols-table sm:grid-cols-3 grid-cols-sm-table items-center justify-between cursor-pointer gap-4 text-purple-800 font-bold">
 							<span>Name</span>
 							<span className="sm:text-left text-right max-w-fit">
 								Total
@@ -26,7 +26,7 @@ const customers = ({ users }: Props) => {
 							{users.map((user) => (
 								<li
 									key={user.id}
-									className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid lg:grid-cols-table sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer gap-4"
+									className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid lg:grid-cols-table sm:grid-cols-3 grid-cols-sm-table items-center justify-between cursor-pointer gap-4"
 								>
 									<div className="flex items-center">
 										<div className="bg-purple-100 p-3 rounded-lg">
