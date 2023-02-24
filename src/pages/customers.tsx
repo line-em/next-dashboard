@@ -42,7 +42,7 @@ const Customers = ({ users }: Props) => {
 									{/* </div> */}
 									<p className="pl-4 md:flex">{user.name}</p>
 								</div>
-								<p className="font-bold">{user.lastItemPrice}</p>
+								<p className="font-bold">{user.total}</p>
 								<p className="hidden sm:flex">
 									<span
 										className={`p-2 rounded-lg ${
