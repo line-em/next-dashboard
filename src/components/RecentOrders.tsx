@@ -1,4 +1,3 @@
-import React from "react";
 import { User } from "@/fixtures/getUsers";
 import { MdShoppingBag } from "react-icons/md";
 

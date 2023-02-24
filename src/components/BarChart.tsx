@@ -10,10 +10,15 @@ import {
 	Tooltip,
 	Legend
 } from "chart.js";
+import { User } from "@/fixtures/getUsers";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+interface Props {
+	data: User[];
+}
 
 interface ChartData {
 	labels: Array<string>;
@@ -45,7 +50,7 @@ interface ChartOptions {
 	maintainAspectRatio: boolean;
 }
 
-const BarChart = () => {
+const BarChart = ({ data }: Props) => {
 	const [chartData, setChartData] = useState<ChartData>({
 		labels: [],
 		datasets: []
@@ -69,9 +74,39 @@ const BarChart = () => {
 		maintainAspectRatio: false
 	});
 
+	const totalPrice: number = data.reduce(
+		(acc: number, curr: { total: string }) =>
+			acc + Number(curr.total.replace("$", "")),
+		0
+	);
+
+	const getRandomSalesData = (totalValue: number): Array<number> => {
+		const numDays = 7;
+		const distributedValues: number[] = Array.from({ length: numDays }, () => 0);
+		let remainingValue: number =
+			totalValue - distributedValues.reduce((acc, curr) => acc + curr, 0);
+
+		while (remainingValue > 0) {
+			const randomIndex = ~~(Math.random() * numDays);
+			const currentValue = ~~(Math.random() * 250);
+			distributedValues[randomIndex] += currentValue;
+			remainingValue -= currentValue;
+		}
+
+		return distributedValues;
+	};
+
 	useEffect(() => {
-		const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-		const salesData = [1880, 2500, 3200, 1800, 2200, 2900, 3100];
+		const daysOfWeek = [
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday",
+			"Sunday"
+		];
+		const salesData = getRandomSalesData(totalPrice);
 
 		setChartData({
 			labels: daysOfWeek,

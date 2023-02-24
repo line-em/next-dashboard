@@ -29,7 +29,7 @@ export default function Home({ data }: Props) {
 			<section className="bg-neutral-100 min-h-screen">
 				<TopCards />
 				<div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
-					<BarChart />
+					<BarChart data={data} />
 					<RecentOrders data={data} />
 				</div>
 			</section>
