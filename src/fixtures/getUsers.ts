@@ -24,7 +24,7 @@ export const getUsers = (count: number): Array<User> => {
 			lastItemPrice: faker.commerce.price(50, 250, 2, "$"),
 			lastItemName:
 				faker.commerce.productAdjective() + " " + faker.commerce.product(),
-			total: faker.finance.amount(5, 2500, 2, "$"),
+			total: faker.finance.amount(5, 1500, 2, "$"),
 			status: faker.helpers.arrayElement(["On Hold", "Processing", "Completed"]),
 			time: `${~~(Math.random() * 10) + 1}${
 				timeOptions[~~(Math.random() * timeOptions.length)]
