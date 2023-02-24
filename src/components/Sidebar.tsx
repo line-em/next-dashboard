@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 import {
 	BsPersonFill,
 	BsFillHouseDoorFill,
@@ -9,23 +9,48 @@ import {
 import { MdShoppingBag } from "react-icons/md";
 // { children }: React.PropsWithChildren<{}>
 const Sidebar = () => {
+	const { asPath } = useRouter();
 	return (
 		<aside className="h-screen bg-white flex flex-col items-center py-4">
 			<Link href={"/"}>
-				<div className="bg-purple-800 p-3 rounded-lg inline-block hover:bg-purple-600 transition-colors">
-					<BsFillHouseDoorFill className="text-gray-100 cursor-pointer" />
+				<div
+					className={`${
+						asPath === "/" ? "bg-purple-800" : "bg-gray-100"
+					} p-3 rounded-lg inline-block hover:bg-purple-400 transition-colors`}
+				>
+					<BsFillHouseDoorFill
+						className={`${
+							asPath === "/" ? "text-gray-100" : "text-gray-800"
+						} cursor-pointer`}
+					/>
 				</div>
 			</Link>
 			<span className="border-gray-200 w-full border-b-[1px] my-5"></span>
 			<Link href={"/customers"}>
-				<div className="bg-gray-100 p-3 rounded-lg inline-block hover:bg-purple-100 transition-colors">
-					<BsPersonFill className="text-gray-800 cursor-pointer" />
+				<div
+					className={`${
+						asPath === "/customers" ? "bg-purple-800" : "bg-gray-100"
+					} p-3 rounded-lg inline-block hover:bg-purple-400 transition-colors`}
+				>
+					<BsPersonFill
+						className={`${
+							asPath === "/customers" ? "text-gray-100" : "text-gray-800"
+						} cursor-pointer`}
+					/>
 				</div>
 			</Link>
 			<span className="border-gray-200 w-full border-b-[1px] my-5"></span>
 			<Link href={"/recent"}>
-				<div className="bg-gray-100 p-3 rounded-lg inline-block hover:bg-purple-100 transition-colors">
-					<MdShoppingBag className="text-gray-800 cursor-pointer" />
+				<div
+					className={`${
+						asPath === "/recent" ? "bg-purple-800" : "bg-gray-100"
+					} p-3 rounded-lg inline-block hover:bg-purple-400 transition-colors`}
+				>
+					<MdShoppingBag
+						className={`${
+							asPath === "/recent" ? "text-gray-100" : "text-gray-800"
+						} cursor-pointer`}
+					/>
 				</div>
 			</Link>
 			<span className="border-gray-200 w-full border-b-[1px] my-5"></span>
