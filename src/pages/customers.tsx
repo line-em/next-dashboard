@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
-import { BsPersonFill } from "react-icons/bs";
 import { getUsers, User } from "@/fixtures/getUsers";
+import { BsPersonFill } from "react-icons/bs";
 
 interface Props {
 	users: User[];

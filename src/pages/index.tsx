@@ -3,10 +3,16 @@ import { Rubik } from "@next/font/google";
 import TopCards from "@/components/TopCards";
 import BarChart from "@/components/BarChart";
 import RecentOrders from "@/components/RecentOrders";
+import { getUsers, User } from "@/fixtures/getUsers";
+import { GetStaticProps } from "next";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
-export default function Home() {
+interface Props {
+	data: User[];
+}
+
+export default function Home({ data }: Props) {
 	return (
 		<>
 			<Head>
@@ -24,9 +30,15 @@ export default function Home() {
 				<TopCards />
 				<div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
 					<BarChart />
-					<RecentOrders />
+					<RecentOrders data={data} />
 				</div>
 			</section>
 		</>
 	);
 }
+export const getStaticProps: GetStaticProps<Props> = async () => {
+	const data = getUsers(20);
+	return {
+		props: { data }
+	};
+};

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
+import { Rubik } from "@next/font/google";
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -9,6 +10,8 @@ import {
 	Tooltip,
 	Legend
 } from "chart.js";
+
+const rubik = Rubik({ subsets: ["latin"] });
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -25,6 +28,19 @@ interface DataSets {
 }
 
 interface ChartOptions {
+	plugins: {
+		legend: {
+			position: "bottom";
+		};
+		title: {
+			display: boolean;
+			text: string;
+			font: {
+				family: string;
+				size: number;
+			};
+		};
+	};
 	responsive: boolean;
 	maintainAspectRatio: boolean;
 }
@@ -36,8 +52,21 @@ const BarChart = () => {
 	});
 
 	const [chartOptions, setChartOptions] = useState<ChartOptions>({
+		plugins: {
+			legend: {
+				position: "bottom"
+			},
+			title: {
+				display: true,
+				text: "Daily Revenue",
+				font: {
+					family: rubik.style.fontFamily,
+					size: 16
+				}
+			}
+		},
 		responsive: true,
-		maintainAspectRatio: true
+		maintainAspectRatio: false
 	});
 
 	useEffect(() => {
