@@ -3,7 +3,7 @@ import { User } from "@/fixtures/getUsers";
 export const totalPrice = (data: User[]): number =>
 	data.reduce(
 		(acc: number, curr: { total: string }) =>
-			acc + Number(curr.total.replace("$", "")),
+			Number(acc.toFixed(2)) + Number(curr.total.replace("$", "")),
 		0
 	);
 
