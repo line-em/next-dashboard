@@ -54,17 +54,17 @@ const Sidebar = () => {
 				</div>
 			</Link>
 			<span className="border-gray-200 w-full border-b-[1px] my-5"></span>
-			<Link href={"/customers"}>
-				<div className="bg-gray-100 p-3 rounded-lg inline-block hover:bg-purple-100 transition-colors">
-					<BsBarChartFill className="text-gray-800 cursor-pointer" />
-				</div>
-			</Link>
+			{/* <Link href={"/customers"}> */}
+			<div className="bg-gray-100 p-3 rounded-lg inline-block">
+				<BsBarChartFill className="text-gray-300" />
+			</div>
+			{/* </Link> */}
 			<span className="border-gray-200 w-full border-b-[1px] my-5"></span>{" "}
-			<Link href={"/customers"}>
-				<div className="bg-gray-100 p-3 rounded-lg inline-block hover:bg-purple-100 transition-colors">
-					<BsGearFill className="text-gray-800 cursor-pointer" />
-				</div>
-			</Link>
+			{/* <Link href={"/customers"}> */}
+			<div className="bg-gray-100 p-3 rounded-lg inline-block">
+				<BsGearFill className="text-gray-300" />
+			</div>
+			{/* </Link> */}
 		</aside>
 	);
 };
