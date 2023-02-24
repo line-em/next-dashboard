@@ -31,8 +31,20 @@ const Customers = ({ users }: Props) => {
 									</div>
 									<p className="pl-4 md:flex">{user.name}</p>
 								</div>
-								<p>{user.total}</p>
-								<p className="hidden sm:grid">{user.status}</p>
+								<p className="font-bold">{user.lastItemPrice}</p>
+								<p className="hidden sm:flex">
+									<span
+										className={`p-2 rounded-lg ${
+											user.status === "Completed"
+												? "bg-green-200"
+												: user.status === "Processing"
+												? "bg-blue-200"
+												: "bg-red-200"
+										}`}
+									>
+										{user.status}
+									</span>
+								</p>
 								<p className="hidden lg:grid text-gray-600 sm:text-left text-right">
 									{user.email}
 								</p>

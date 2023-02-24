@@ -11,8 +11,9 @@ const Customers = ({ users }: Props) => {
 		<main className="bg-neutral-100 min-h-[94.5vh] sm:overflow-hidden">
 			<section className="flex justify-between sm:p-4 w-full">
 				<div className="w-full m-auto p-4 border rounded-lg bg-white sm:overflow-y-auto sm:h-[90vh] h-[100vh]">
-					<div className="my-3 px-2 grid grid-cols-2 sm:grid-cols-3 items-center justify-between cursor-pointer gap-4 text-purple-800 font-bold">
+					<div className="my-3 px-2 grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 items-center justify-between cursor-pointer gap-4 text-purple-800 font-bold">
 						<span className="sm:text-left text-right max-w-fit">Order</span>
+						<span className="hidden md:grid">Product</span>
 						<span>Status</span>
 						<span className="hidden sm:grid">Time</span>
 					</div>
@@ -20,7 +21,7 @@ const Customers = ({ users }: Props) => {
 						{users.map((order) => (
 							<li
 								key={order.id}
-								className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid grid-cols-2 sm:grid-cols-3 items-center justify-between cursor-pointer gap-4"
+								className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 items-center justify-between cursor-pointer gap-4"
 							>
 								<article className="flex items-center">
 									<div
@@ -38,7 +39,8 @@ const Customers = ({ users }: Props) => {
 										</p>
 									</div>
 								</article>
-								<article>
+								<p className="hidden md:grid">{order.lastItemName}</p>
+								<p>
 									<span
 										className={`p-2 rounded-lg ${
 											order.status === "Completed"
@@ -50,7 +52,7 @@ const Customers = ({ users }: Props) => {
 									>
 										{order.status}
 									</span>
-								</article>
+								</p>
 								<p className="hidden sm:grid">{order.time}</p>
 							</li>
 						))}

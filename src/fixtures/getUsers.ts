@@ -4,6 +4,7 @@ export interface User {
 	id: string;
 	name: string;
 	lastItemPrice: string;
+	lastItemName: string;
 	total: string;
 	status: string;
 	time: string;
@@ -21,6 +22,8 @@ export const getUsers = (count: number): Array<User> => {
 			id: faker.datatype.uuid(),
 			name: firstName + " " + lastName,
 			lastItemPrice: faker.commerce.price(50, 250, 2, "$"),
+			lastItemName:
+				faker.commerce.productAdjective() + " " + faker.commerce.product(),
 			total: faker.finance.amount(5, 2500, 2, "$"),
 			status: faker.helpers.arrayElement(["On Hold", "Processing", "Completed"]),
 			time: `${~~(Math.random() * 10) + 1}${
