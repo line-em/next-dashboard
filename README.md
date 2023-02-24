@@ -12,7 +12,6 @@ I wanted to learn Next.js and Typescript, so I found a project I could practice!
 
 ![](<./public/thumb (3).png>)
 ![](<./public/thumb (4).png>)
-![](<./public/thumb (2).png>)
 ![](<./public/thumb (1).png>)
 
 ## Overview
