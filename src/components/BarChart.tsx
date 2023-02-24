@@ -11,6 +11,7 @@ import {
 	Legend
 } from "chart.js";
 import { User } from "@/fixtures/getUsers";
+import { getRandomSalesData, totalPrice } from "@/utils/financeFuncs";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -74,28 +75,6 @@ const BarChart = ({ data }: Props) => {
 		maintainAspectRatio: false
 	});
 
-	const totalPrice: number = data.reduce(
-		(acc: number, curr: { total: string }) =>
-			acc + Number(curr.total.replace("$", "")),
-		0
-	);
-
-	const getRandomSalesData = (totalValue: number): Array<number> => {
-		const numDays = 7;
-		const distributedValues: number[] = Array.from({ length: numDays }, () => 0);
-		let remainingValue: number =
-			totalValue - distributedValues.reduce((acc, curr) => acc + curr, 0);
-
-		while (remainingValue > 0) {
-			const randomIndex = ~~(Math.random() * numDays);
-			const currentValue = ~~(Math.random() * 250);
-			distributedValues[randomIndex] += currentValue;
-			remainingValue -= currentValue;
-		}
-
-		return distributedValues;
-	};
-
 	useEffect(() => {
 		const daysOfWeek = [
 			"Monday",
@@ -106,7 +85,7 @@ const BarChart = ({ data }: Props) => {
 			"Saturday",
 			"Sunday"
 		];
-		const salesData = getRandomSalesData(totalPrice);
+		const salesData = getRandomSalesData(totalPrice(data));
 
 		setChartData({
 			labels: daysOfWeek,
