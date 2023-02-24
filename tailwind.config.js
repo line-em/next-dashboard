@@ -11,7 +11,7 @@ module.exports = {
 	theme: {
 		extend: {
 			gridTemplateColumns: {
-				table: "1fr minmax(0, 120px) minmax(0, 120px) repeat(2, minmax(auto, 1fr))",
+				table: "1fr minmax(0, 120px) minmax(0, 120px) 2fr 1fr",
 				"sm-table": "2fr 1fr",
 				main: "minmax(2.5rem, 5rem) minmax(auto, 1fr)"
 			}
