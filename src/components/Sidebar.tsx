@@ -3,10 +3,10 @@ import Link from "next/link";
 import {
 	BsPersonFill,
 	BsFillHouseDoorFill,
-	BsFillCartFill,
 	BsBarChartFill,
 	BsGearFill
 } from "react-icons/bs";
+import { MdShoppingBag } from "react-icons/md";
 // { children }: React.PropsWithChildren<{}>
 const Sidebar = () => {
 	return (
@@ -23,9 +23,9 @@ const Sidebar = () => {
 				</div>
 			</Link>
 			<span className="border-gray-200 w-full border-b-[1px] my-5"></span>
-			<Link href={"/customers"}>
+			<Link href={"/recent"}>
 				<div className="bg-gray-100 p-3 rounded-lg inline-block hover:bg-purple-100 transition-colors">
-					<BsFillCartFill className="text-gray-800 cursor-pointer" />
+					<MdShoppingBag className="text-gray-800 cursor-pointer" />
 				</div>
 			</Link>
 			<span className="border-gray-200 w-full border-b-[1px] my-5"></span>
