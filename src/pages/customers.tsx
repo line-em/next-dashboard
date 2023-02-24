@@ -8,9 +8,9 @@ interface Props {
 
 const Customers = ({ users }: Props) => {
 	return (
-		<main className="bg-neutral-100 min-h-screen">
+		<main className="bg-neutral-100 min-h-[94.5vh] sm:overflow-hidden">
 			<section className="flex justify-between sm:p-4 w-full">
-				<div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
+				<div className="w-full m-auto p-4 border rounded-lg bg-white sm:overflow-y-auto sm:h-[90vh] h-[100vh]">
 					<div className="my-3 px-2 grid lg:grid-cols-table sm:grid-cols-3 grid-cols-sm-table items-center justify-between cursor-pointer gap-4 text-purple-800 font-bold">
 						<span>Name</span>
 						<span className="sm:text-left text-right max-w-fit">Total</span>
