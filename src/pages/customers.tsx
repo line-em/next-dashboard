@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { getUsers, User } from "@/fixtures/getUsers";
 import { BsPersonFill } from "react-icons/bs";
-
+import { Avatar } from "@boringer-avatars/react";
 interface Props {
 	users: User[];
 }
@@ -20,15 +20,26 @@ const Customers = ({ users }: Props) => {
 					</div>
 
 					<ul>
-						{users.map((user) => (
+						{users.map((user, index) => (
 							<li
 								key={user.id}
 								className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid lg:grid-cols-table sm:grid-cols-3 grid-cols-sm-table items-center justify-between cursor-pointer gap-4"
 							>
 								<div className="flex items-center">
-									<div className="bg-purple-100 p-3 rounded-lg">
-										<BsPersonFill className="text-purple-800" />
-									</div>
+									{/* <div className="bg-purple-100 p-3 rounded-lg"> */}
+									<Avatar
+										variant={index % 2 ? "beam" : "ring"}
+										name={user.name}
+										colors={[
+											"#553C9A",
+											"#E9D8FD",
+											"#B794F4",
+											"#E2E8F0",
+											"#7F9CF5"
+										]}
+									/>
+									{/* <BsPersonFill className="text-purple-800" /> */}
+									{/* </div> */}
 									<p className="pl-4 md:flex">{user.name}</p>
 								</div>
 								<p className="font-bold">{user.lastItemPrice}</p>
